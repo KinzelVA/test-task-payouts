@@ -119,3 +119,13 @@ PowerShell (Windows):
 .\tasks.ps1 test
 .\tasks.ps1 logs
 .\tasks.ps1 down
+
+“Endpoints”
+
+GET /api/v1/payout-requests/
+
+POST /api/v1/payout-requests/
+
+GET /api/v1/payout-requests/{id}/
+
+POST /api/v1/payout-requests/{id}/cancel/
