@@ -92,3 +92,30 @@ Celery-таска стартует только если запись дейст
 Защита от гонок: переход NEW -> PROCESSING выполняется атомарным UPDATE по условию статуса.
 
 Cancel: выполняется условным UPDATE только для статусов NEW/PROCESSING.
+
+## Запуск тестов
+
+В Docker:
+
+```bash
+docker compose exec web python manage.py test -v 2
+Локально (если нужно)
+python src/manage.py test -v 2
+
+idempotency по client_reference
+
+async processing Celery
+
+cancel only NEW/PROCESSING
+
+tests included
+
+## Частые команды
+
+PowerShell (Windows):
+
+```powershell
+.\tasks.ps1 up
+.\tasks.ps1 test
+.\tasks.ps1 logs
+.\tasks.ps1 down

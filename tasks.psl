@@ -1,0 +1,15 @@
+param(
+  [Parameter(Mandatory=$true)]
+  [ValidateSet("up","down","build","logs","ps","test","shell")]
+  [string]$Task
+)
+
+switch ($Task) {
+  "up"    { docker compose up -d --build; break }
+  "down"  { docker compose down; break }
+  "build" { docker compose build --no-cache; break }
+  "logs"  { docker compose logs -f --tail=100; break }
+  "ps"    { docker compose ps; break }
+  "test"  { docker compose exec web python manage.py test -v 2; break }
+  "shell" { docker compose exec web python manage.py shell; break }
+}
