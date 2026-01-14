@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    path("", RedirectView.as_view(url="/api/v1/", permanent=False)),
+    path("", RedirectView.as_view(url="/api/v1/payout-requests/", permanent=False)),
     path('admin/', admin.site.urls),
     path("api/v1/", include("payouts.api.urls")),
 ]
